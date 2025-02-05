@@ -26,21 +26,30 @@ p {
   margin-block-end: 0;
 }
 
-.fade-in {
+.fade-in-animation {
   opacity: 0;
+}
+
+.fade-in {
   transform: translateY(20px);
   animation: fade-in 1s ease-out forwards;
 }
 
-.fade-in-x {
+.fade-in-x-animation {
   opacity: 0;
+}
+
+.fade-in-x {
   transform: translateX(20px);
-  animation: fade-in-x 0.5s ease-out forwards;
+  animation: fade-in-x 1s ease-out forwards;
+}
+
+.appearance-animation {
+  opacity: 0;
 }
 
 .appearance {
-  opacity: 0;
-  animation: appearance 0.5s ease-out forwards;
+  animation: appearance 1s ease-out forwards;
 }
 
 .text-gradient {
