@@ -1,0 +1,340 @@
+/* Новый блок с CSS-переменными для цветовой палитры */
+:root {
+    --background-color: #000000;
+    --card-bg: #1A1A1A;
+    --primary-color: #FF6F91;
+    --secondary-color: #9B5DE5;
+    --accent-color: #FF9F1C;
+    --text-color: #FFFFFF;
+}
+
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'Anticva';
+    src: url('Anticva-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'DidactGothic';
+    src: url('DidactGothic-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'SoyuzGrotesk';
+    src: url('Soyuz Grotesk Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('Unbounded-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('Unbounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('Unbounded-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Unbounded';
+    src: url('Unbounded-Black.ttf') format('opentype');
+    font-weight: 900;
+}
+
+/* Универсальные стили */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Заголовки */
+h1,
+h2,
+h3 {
+    font-family: 'Rubik', sans-serif;
+    color: var(--primary-color);
+    margin-top: 0;
+    /* Анимация появления */
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Анимация для заголовков */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили ссылок */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Стили для секций */
+.intro-section,
+.bio-section,
+.links-section,
+.production-info,
+.bot-section,
+.requisites {
+    background-color: var(--card-bg);
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.intro-section:hover,
+.bio-section:hover,
+.links-section:hover,
+.production-info:hover,
+.bot-section:hover,
+.requisites:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Отступы для внутренних списков в секции ссылок */
+.links-section ul ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+/* Стили для CTA кнопок */
+.cta-buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.button.secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+
+    .intro-section,
+    .bio-section,
+    .links-section,
+    .production-info,
+    .bot-section,
+    .requisites {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Новые правила для адаптивности блока биографии */
+    .bio-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-photo {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Новые стили для секции биографии */
+.bio-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    animation: slideInRight 1s ease-out;
+}
+
+.bio-photo {
+    max-width: 250px;
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bio-photo:hover {
+    transform: scale(1.05);
+}
+
+.bio-text {
+    flex: 1;
+    animation: slideInLeft 1s ease-out;
+}
+
+/* Анимация: сдвиг справа -> влево */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Анимация: сдвиг слева -> вправо */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Добавляем плавную прокрутку */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Новый стиль для динамичного эффекта в верхнем блоке (hero) */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-size: 300% 300%;
+    animation: gradientAnimation 8s ease infinite;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Эффект небольшого увеличения заголовков при наведении */
+h1:hover,
+h2:hover,
+h3:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 var(--accent-color);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px var(--accent-color);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 var(--accent-color);
+    }
+}
+
+.button.primary:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Стили для ссылок в навигационном блоке */
+.links-section a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.links-section a:hover {
+    color: var(--accent-color);
+}
+
+/* Стили для иконок в ссылках */
+.link-icon {
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
